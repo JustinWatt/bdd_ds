@@ -54,4 +54,16 @@ describe 'linked list' do
     end
   end
 
+  describe '#reverse' do
+    before(:example) do
+      5.downto(1).each do |x|
+        list.insert_to_front(x)
+      end
+    end
+
+    it 'reverses the list' do
+      list.reverse
+      expect(list.inspect).to be == [5, 4, 3, 2, 1]
+    end
+  end
 end

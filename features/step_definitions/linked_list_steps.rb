@@ -13,6 +13,7 @@ end
 Given(/^a linked list with (\d+) nodes$/) do |number_of_nodes|
   @list = LinkedList.new
   number_of_nodes.to_i.times { |n| @list.insert_to_front(n) }
+  expect(@list.inspect).to be == [4, 3, 2, 1, 0]
   expect(@list.node_count).to be == number_of_nodes.to_i
 end
 
@@ -22,4 +23,12 @@ end
 
 Then(/^the linked list should have (\d+) nodes$/) do |number_of_nodes|
   expect(@list.node_count).to be == number_of_nodes.to_i
+end
+
+When(/^I reverse the list$/) do
+  @list.reverse
+end
+
+Then(/^the list should be in reverse order$/) do
+  expect(@list.inspect).to be == [0, 1, 2, 3, 4]
 end

@@ -10,3 +10,8 @@ Feature: Modifying a linked list
     When I delete a node
     Then the linked list should have 4 nodes
 
+  Scenario:
+    Given a linked list with 5 nodes
+    When I reverse the list
+    Then the list should be in reverse order
+
